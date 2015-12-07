@@ -13,7 +13,7 @@
     public class ELRumDrinkingCapitanPlayer : BasePlayer
     {
         public const int NumberOfPlayouts = 50;
-
+        
         protected static readonly ICollection<Card> playedCards = new List<Card>();//may be should not be static
 
         private static IList<Card> playedCardsInCurrentContext = new List<Card>();
@@ -149,15 +149,15 @@
 
                 //TODO PUT THE SIMULATOR HERE
 
-                //bool game = AmWinnerIfSimpleSimulateFullGame(move, this.Cards.ToList<Card>(), true, context, context.FirstPlayerRoundPoints, context.SecondPlayerRoundPoints);
+                bool gameIsWon = AmWinnerIfSimpleSimulateFullGame(move, this.Cards.ToList<Card>(), true, context, context.FirstPlayerRoundPoints, context.SecondPlayerRoundPoints);
 
-                bool game = true;
+                //bool game = true;
 
-
+                Console.WriteLine(gameIsWon.ToString());
                 //var game = new RoundSimulation(n new SantaseGameRules());
                 //game.Play(0, 0);
                 // test if immediate win possible
-                if (game)
+                if (gameIsWon)
                 {
                     candidateMoves.Add(move);
                     return candidateMoves;
