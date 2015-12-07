@@ -21,7 +21,6 @@
         public override PlayerAction GetTurn(PlayerTurnContext context)
         {
             var possibleCardsToPlay = this.PlayerActionValidator.GetPossibleCardsToPlay(context, this.Cards);
-            
             var shuffledCards = possibleCardsToPlay.Shuffle();
             var cardToPlay = shuffledCards.First();
             return this.PlayCard(cardToPlay);

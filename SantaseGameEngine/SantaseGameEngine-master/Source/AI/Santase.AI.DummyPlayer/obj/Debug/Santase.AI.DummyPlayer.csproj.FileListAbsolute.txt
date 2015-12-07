@@ -1,0 +1,7 @@
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\bin\Debug\Santase.AI.DummyPlayer.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\bin\Debug\Santase.AI.DummyPlayer.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\bin\Debug\Santase.Logic.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\bin\Debug\Santase.Logic.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\obj\Debug\Santase.AI.DummyPlayer.csprojResolveAssemblyReference.cache
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\obj\Debug\Santase.AI.DummyPlayer.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.DummyPlayer\obj\Debug\Santase.AI.DummyPlayer.pdb

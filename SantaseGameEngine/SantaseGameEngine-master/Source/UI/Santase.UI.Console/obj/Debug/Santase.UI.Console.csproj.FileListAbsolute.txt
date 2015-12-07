@@ -1,0 +1,10 @@
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.UI.Console.exe.config
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.UI.Console.exe
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.UI.Console.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.AI.SmartPlayer.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.Logic.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.AI.SmartPlayer.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\bin\Debug\Santase.Logic.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\obj\Debug\Santase.UI.Console.csprojResolveAssemblyReference.cache
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\obj\Debug\Santase.UI.Console.exe
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\UI\Santase.UI.Console\obj\Debug\Santase.UI.Console.pdb

@@ -1,0 +1,10 @@
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\Santase.Logic.Tests.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\Santase.Logic.Tests.pdb
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\Moq.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\nunit.framework.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\Santase.Logic.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\Moq.xml
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\bin\Debug\nunit.framework.xml
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\obj\Debug\Santase.Logic.Tests.csprojResolveAssemblyReference.cache
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\obj\Debug\Santase.Logic.Tests.dll
+C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Tests\Santase.Logic.Tests\obj\Debug\Santase.Logic.Tests.pdb

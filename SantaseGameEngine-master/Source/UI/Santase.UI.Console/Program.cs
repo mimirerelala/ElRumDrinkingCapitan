@@ -6,7 +6,7 @@
     using Santase.Logic;
     using Santase.Logic.GameMechanics;
     using Santase.Logic.Players;
-
+    using AI.RumDrinkingCapitanPlayer;
     public static class Program
     {
         public static void Main()
@@ -34,7 +34,7 @@
             Console.BufferWidth = Console.WindowWidth = 50;
 
             IPlayer firstPlayer = new ConsolePlayer(5, 10);
-            IPlayer secondPlayer = new SmartPlayer();
+            IPlayer secondPlayer = new ELRumDrinkingCapitanPlayer();
             ISantaseGame game = new SantaseGame(firstPlayer, secondPlayer);
             return game;
         }

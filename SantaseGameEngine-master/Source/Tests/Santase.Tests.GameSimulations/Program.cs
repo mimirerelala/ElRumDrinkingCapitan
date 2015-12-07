@@ -15,16 +15,16 @@
             SimulateGames(new SmartPlayersGameSimulator());
             Console.WriteLine("Closed games: {0}", GlobalStats.GamesClosedByPlayer);
 
-            SimulateGames(new SmartAndDummyPlayerChangingTrumpSimulator());
+            //SimulateGames(new SmartAndDummyPlayerChangingTrumpSimulator());
 
-            SimulateGames(new SmartAndDummyPlayersSimulator());
+            //SimulateGames(new SmartAndDummyPlayersSimulator());
         }
 
         private static void SimulateGames(IGameSimulator gameSimulator)
         {
             Console.WriteLine($"Running {gameSimulator.GetType().Name}...");
 
-            var simulationResult = gameSimulator.Simulate(100000);
+            var simulationResult = gameSimulator.Simulate(100);
 
             Console.WriteLine(simulationResult.SimulationDuration);
             Console.WriteLine($"Total games: {simulationResult.FirstPlayerWins:0,0} - {simulationResult.SecondPlayerWins:0,0}");

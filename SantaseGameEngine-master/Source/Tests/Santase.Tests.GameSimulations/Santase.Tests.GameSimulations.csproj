@@ -65,6 +65,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\AI\mcts\Santase.AI.RumDrinkingCapitanPlayer.csproj">
+      <Project>{8d439e36-6787-4eff-8d18-a934bc885d86}</Project>
+      <Name>Santase.AI.RumDrinkingCapitanPlayer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\AI\Santase.AI.DummyPlayer\Santase.AI.DummyPlayer.csproj">
       <Project>{cc90f6aa-0308-4cf0-95b4-f61b895b62eb}</Project>
       <Name>Santase.AI.DummyPlayer</Name>
