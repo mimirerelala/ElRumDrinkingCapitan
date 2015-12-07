@@ -15,9 +15,9 @@
             SimulateGames(new SmartPlayersGameSimulator());
             Console.WriteLine("Closed games: {0}", GlobalStats.GamesClosedByPlayer);
 
-            //SimulateGames(new SmartAndDummyPlayerChangingTrumpSimulator());
+            // SimulateGames(new SmartAndDummyPlayerChangingTrumpSimulator());
 
-            //SimulateGames(new SmartAndDummyPlayersSimulator());
+            // SimulateGames(new SmartAndDummyPlayersSimulator());
         }
 
         private static void SimulateGames(IGameSimulator gameSimulator)

@@ -16,6 +16,8 @@
 
         protected static readonly ICollection<Card> playedCards = new List<Card>();//may be should not be static
 
+        private static IList<Card> playedCardsInCurrentContext = new List<Card>();
+
         public static Queue<Card> announces = new Queue<Card>();
 
 
@@ -51,13 +53,13 @@
 
             var potentialMoves = this.PreprocessMoves(context, potentialCardsToPlay);
 
-            if (potentialMoves.Count == 0)
+            if (potentialMoves.Count() == 0)
             {
                 var move = this.PlayerActionValidator.GetPossibleCardsToPlay(context, this.Cards);
                 return this.PlayCard(move.FirstOrDefault());
             }
 
-            if (potentialMoves.Count == 1)
+            if (potentialMoves.Count() == 1)
             {
                 return this.PlayCard(potentialMoves.FirstOrDefault());
             }
@@ -87,7 +89,7 @@
             }
 
             // randomize best move
-            int count = moves[bestResult].Count;
+            int count = moves[bestResult].Count();
             if (count == 1)
             {
                 return this.PlayCard(moves[bestResult][0]);
@@ -146,10 +148,13 @@
             {
 
                 //TODO PUT THE SIMULATOR HERE
-                
-                var game = AmWinnerIfSimpleSimulateFullGame(move, this.Cards.ToList<Card>(),  true, context, context.FirstPlayerRoundPoints, context.SecondPlayerRoundPoints);
 
-               //var game = new RoundSimulation(n new SantaseGameRules());
+                //bool game = AmWinnerIfSimpleSimulateFullGame(move, this.Cards.ToList<Card>(), true, context, context.FirstPlayerRoundPoints, context.SecondPlayerRoundPoints);
+
+                bool game = true;
+
+
+                //var game = new RoundSimulation(n new SantaseGameRules());
                 //game.Play(0, 0);
                 // test if immediate win possible
                 if (game)
@@ -214,19 +219,26 @@
                     return this.PlayCard(card);
                 }
             }
-
             return null;
         }
-
 
 
 
         public static bool AmWinnerIfSimpleSimulateFullGame(Card ChosenCard, IList<Card> myHand, bool iAmFirst, PlayerTurnContext context, int myPoints, int otherPoints)
         {
             //TODO what if the game is already closed?
+            Console.WriteLine(myHand.Count().ToString());
+            playedCardsInCurrentContext = new List<Card>();
+            foreach(Card v in playedCards)
+            {
+                playedCardsInCurrentContext.Add(v);
+            }
 
-            IList<Card> secretCards = GetAllCards(myHand, playedCards, context.TrumpCard).ToList<Card>();
+            IList<Card> secretCards = GetAllCards(myHand, playedCardsInCurrentContext, context.TrumpCard).ToList<Card>();
+            Console.WriteLine("Secret cards {0}, Played Cards {1}", secretCards.Count(), playedCardsInCurrentContext.Count());
 
+
+            Console.WriteLine(secretCards.Count().ToString());
             //randomize
             var rnd = new Random();
             secretCards = secretCards.OrderBy(item => rnd.Next()).ToList();
@@ -240,7 +252,7 @@
             int firstPlPoints;
             int secondPlPoints;
 
-            if (secretCards.Count > myHand.Count && iAmFirst == true)
+            if (secretCards.Count() > myHand.Count() && iAmFirst == true)
             {
                 for (int i = 0; i < myHand.Count; i++)
                 {
@@ -260,7 +272,7 @@
                 //Play first round
                 //COPY THE OPEN DECK GAME WITHOUT THE FIRST PLAYER CHOICE
                 Card firstPlayerCard = ChosenCard;
-                Card secondPlayerCard = PlayFirstOpen(firstHandPl, secondHandPl, firstPlPoints, secondPlPoints, context);
+                Card secondPlayerCard = PlaySecondOpen(firstHandPl, secondHandPl, firstPlPoints, secondPlPoints, context, firstPlayerCard);
 
                 bool firstIsWinner = IfFirstPlayerIsWinner(firstPlayerCard, secondPlayerCard, context);
                 int turnPoints = firstPlayerCard.GetValue() + secondPlayerCard.GetValue();
@@ -274,13 +286,13 @@
                 }
                 firstHandPl.Remove(firstPlayerCard);
                 secondHandPl.Remove(secondPlayerCard);
-                playedCards.Add(firstPlayerCard);
-                playedCards.Add(secondPlayerCard);
+                playedCardsInCurrentContext.Add(firstPlayerCard);
+                playedCardsInCurrentContext.Add(secondPlayerCard);
                 firstHandPl.Add(deckLeft.Dequeue());
                 secondHandPl.Add(deckLeft.Dequeue());
                 iAmFirst = firstIsWinner;
             }
-            else if (secretCards.Count > myHand.Count)
+            else if (secretCards.Count() > myHand.Count())
             {
                 for (int i = 0; i < myHand.Count; i++)
                 {
@@ -314,18 +326,21 @@
                 }
                 firstHandPl.Remove(firstPlayerCard);
                 secondHandPl.Remove(secondPlayerCard);
-                playedCards.Add(firstPlayerCard);
-                playedCards.Add(secondPlayerCard);
+                playedCardsInCurrentContext.Add(firstPlayerCard);
+                playedCardsInCurrentContext.Add(secondPlayerCard);
                 firstHandPl.Add(deckLeft.Dequeue());
                 secondHandPl.Add(deckLeft.Dequeue());
                 iAmFirst = !firstIsWinner;
             }
 
 
-            //TODO PLAY TURN IF SECOND
+
             else//closed deck
             {
                 oponentCards = secretCards;
+                Console.WriteLine("CLOSE");
+                Console.WriteLine(oponentCards.Count().ToString());
+                Console.WriteLine(myHand.Count().ToString());
                 if (iAmFirst)
                 {
                     firstHandPl = myHand;
@@ -340,10 +355,11 @@
                     secondHandPl = myHand;
                     firstPlPoints = otherPoints;
                     secondPlPoints = myPoints;
+                    //TODO PLAY
                 }
             }
 
-            while (firstPlPoints < 66 && secondPlPoints < 66 && deckLeft.Count > 0)
+            while (firstPlPoints < 66 && secondPlPoints < 66 && deckLeft.Count() > 1 && firstHandPl.Count() >0 && secondHandPl.Count() >0)
             {
                 if (iAmFirst)
                 {
@@ -359,7 +375,7 @@
                     secondHandPl.Add(deckLeft.Dequeue());
                 }
             }
-            while (myPoints < 66 && otherPoints < 66 && firstHandPl.Count() > 0)
+            while (myPoints < 66 && otherPoints < 66 && firstHandPl.Count() > 0 && firstHandPl.Count() > 0 && secondHandPl.Count()> 0)
             {
                 PlayTurnWhileClosed(firstHandPl, secondHandPl, firstPlPoints, secondPlPoints, context);
                 //change players
@@ -406,8 +422,8 @@
             }
             firstPlayerHandThisTurn.Remove(firstPlayerCard);
             secondPlayerHandThisTurn.Remove(secondPlayerCard);
-            playedCards.Add(firstPlayerCard);
-            playedCards.Add(secondPlayerCard);
+            playedCardsInCurrentContext.Add(firstPlayerCard);
+            playedCardsInCurrentContext.Add(secondPlayerCard);
             return firstIsWinner;
 
 
@@ -484,8 +500,8 @@
             }
             firstPlayerHandThisTurn.Remove(firstPlayerCard);
             secondPlayerHandThisTurn.Remove(secondPlayerCard);
-            playedCards.Add(firstPlayerCard);
-            playedCards.Add(secondPlayerCard);
+            playedCardsInCurrentContext.Add(firstPlayerCard);
+            playedCardsInCurrentContext.Add(secondPlayerCard);
             return firstIsWinner;
 
         }
@@ -506,7 +522,7 @@
 
             else
             {
-                var possibleWinning = WinningCards(firstPlayerHandThisTurn, context, playedCards.ToList());
+                var possibleWinning = WinningCards(firstPlayerHandThisTurn, context, playedCardsInCurrentContext.ToList());
                 if (possibleWinning.Count() > 0)
                 {
                     firstPlayerCard = possibleWinning.Dequeue();
@@ -542,14 +558,19 @@
             {
                 //us trumps
                 var trumps = secondPlayerHandThisTurn.Where(x => x.Suit == context.TrumpCard.Suit);
-                secondPlayerCard = trumps.OrderBy(x => x.GetValue()).ElementAt(0);
-                if (trumps.Count() == 0)
+                if (trumps.Count() > 0)
                 {
-                    secondPlayerCard = secondPlayerHandThisTurn.First();
+                    secondPlayerCard = trumps.OrderBy(x => x.GetValue()).ElementAt(0);
+
+                }
+                else
+                {
+                    secondPlayerCard = secondPlayerHandThisTurn.FirstOrDefault();
                 }
             }
             return secondPlayerCard;
         }
+
 
 
         public static bool IfFirstPlayerIsWinner(Card first, Card second, PlayerTurnContext context)
@@ -595,7 +616,7 @@
             return 0;
         }
 
-        public static Queue<Card> WinningCards(IList<Card> currentHand, PlayerTurnContext context, IList<Card> playedCards)
+        public static Queue<Card> WinningCards(IList<Card> currentHand, PlayerTurnContext context, IList<Card> playedCardsInCurrentContext)
         {
             Queue<Card> topCards = new Queue<Card>();
             topCards = GetListOfWinning(currentHand, CardSuit.Club, topCards);
@@ -617,20 +638,24 @@
                                       new Card(suit, CardType.Ace),
                                   };
 
-            foreach (var card in playedCards.Where(x => x.Suit == suit))
+            foreach (var card in playedCardsInCurrentContext.Where(x => x.Suit == suit))
             {
                 currentSuitCards.Remove(card);
             }
 
             currentSuitCards.OrderByDescending(x => x.GetValue());
-            if (currentHand.Contains(currentSuitCards.First()))
+            if (currentSuitCards.Count() > 0)
             {
-                q.Enqueue(currentSuitCards.First());
+                if (currentHand.Contains(currentSuitCards.ElementAt(0)));
+                {
+                    q.Enqueue(currentSuitCards.First());
+                }
             }
+
             return q;
         }
 
-        public static ICollection<Card> GetAllCards(ICollection<Card> myCards, ICollection<Card> playedCards, Card activeTrumpCard)
+        public static ICollection<Card> GetAllCards(ICollection<Card> myCards, ICollection<Card> playedCardsInCurrentContext, Card activeTrumpCard)
         {
             var allCards = new CardCollection
                                   {
@@ -664,7 +689,7 @@
             {
                 allCards.Remove(card);
             }
-            foreach (var card in playedCards)
+            foreach (var card in playedCardsInCurrentContext)
             {
                 allCards.Remove(card);
             }
@@ -672,4 +697,5 @@
         }
     }
 }
+
 
