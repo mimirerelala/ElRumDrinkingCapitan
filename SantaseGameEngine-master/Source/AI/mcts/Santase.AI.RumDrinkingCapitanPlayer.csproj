@@ -47,13 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GameSimulations\DeckSimulation.cs" />
-    <Compile Include="GameSimulations\DummyPlayer2.cs" />
-    <Compile Include="GameSimulations\RoundPlayerInfoSimulation.cs" />
-    <Compile Include="GameSimulations\RoundResultSimulation.cs" />
-    <Compile Include="GameSimulations\RoundSimulation.cs" />
-    <Compile Include="GameSimulations\SmartPlayerSimulation.cs" />
-    <Compile Include="GameSimulations\TrickSimulation.cs" />
+    <Compile Include="GameSimulations\GameSimulation.cs" />
     <Compile Include="GlobalStats.cs" />
     <Compile Include="Helpers\OpponentSuitCardsProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,7 +12,7 @@
         protected override ISantaseGame CreateGame()
         {
             IPlayer firstPlayer = new ELRumDrinkingCapitanPlayer(); // new PlayerWithLoggerDecorator(new SmartPlayer(), new ConsoleLogger("[-]"))
-            IPlayer secondPlayer = new SmartPlayer();
+            IPlayer secondPlayer = new DummyPlayer();
             ISantaseGame game = new SantaseGame(firstPlayer, secondPlayer); // new ConsoleLogger("[game] "));
             return game;
         }
