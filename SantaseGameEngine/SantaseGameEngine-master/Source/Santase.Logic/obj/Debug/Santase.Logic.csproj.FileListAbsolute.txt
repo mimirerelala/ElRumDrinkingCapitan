@@ -1,5 +1,0 @@
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Santase.Logic\bin\Debug\Santase.Logic.dll
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Santase.Logic\bin\Debug\Santase.Logic.pdb
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Santase.Logic\obj\Debug\Santase.Logic.csprojResolveAssemblyReference.cache
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Santase.Logic\obj\Debug\Santase.Logic.dll
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\Santase.Logic\obj\Debug\Santase.Logic.pdb

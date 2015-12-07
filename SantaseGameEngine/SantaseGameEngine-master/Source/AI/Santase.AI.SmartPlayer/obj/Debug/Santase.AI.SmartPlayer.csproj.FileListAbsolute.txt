@@ -1,7 +1,0 @@
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\bin\Debug\Santase.AI.SmartPlayer.dll
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\bin\Debug\Santase.AI.SmartPlayer.pdb
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\bin\Debug\Santase.Logic.dll
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\bin\Debug\Santase.Logic.pdb
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\obj\Debug\Santase.AI.SmartPlayer.csprojResolveAssemblyReference.cache
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\obj\Debug\Santase.AI.SmartPlayer.dll
-C:\GitHub\ElRumDrinkingCapitan\SantaseGameEngine\SantaseGameEngine-master\Source\AI\Santase.AI.SmartPlayer\obj\Debug\Santase.AI.SmartPlayer.pdb
